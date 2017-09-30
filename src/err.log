@@ -1,0 +1,8 @@
+lockscr.cpp:14:10: fatal error: drawutils.h: No such file or directory
+ #include "drawutils.h"
+          ^~~~~~~~~~~~~
+compilation terminated.
+drawutils.cpp:1:10: fatal error: drawutils.h: No such file or directory
+ #include "drawutils.h"
+          ^~~~~~~~~~~~~
+compilation terminated.
