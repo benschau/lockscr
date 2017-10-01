@@ -1,5 +1,5 @@
 # Lockscr
-## Simple linux lockscreen to practice cmake usage
+### Simple linux lockscreen to practice cmake usage
 
 ## Dependencies:
 * Cairo
