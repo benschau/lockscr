@@ -1,5 +1,5 @@
 #ifndef PASSHANDLER_H
-#define PASSHANDLer_H
+#define PASSHANDLER_H
 
 #include <unistd.h>
 #include <pwd.h>

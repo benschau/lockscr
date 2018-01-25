@@ -1,3 +1,4 @@
+#include <string>
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -12,6 +13,7 @@
 #include <thread>
 
 #include "drawutils.h"
+#include "sysutils.h"
 
 static xcb_visualtype_t *find_visual(xcb_connection_t *conn, xcb_visualid_t vis);
 void xcb_event_handler(xcb_connection_t *conn);
@@ -34,6 +36,12 @@ int main (int argc, char **argv) {
     cairo_t *cr;
     uint32_t mask;
     uint16_t width_p, height_p;
+    const std::string bg_path = argv[1];
+    
+    if (!fpath_exists(bg_path)) {
+        // set default background as white/black
+        fprintf(stderr, "ERR: Couldn't find background path: %s.\nContinuing...", bg_path.c_str());
+    }
     
     conn = xcb_connect(NULL, NULL);
     scr = xcb_setup_roots_iterator(xcb_get_setup(conn)).data;
@@ -134,7 +142,9 @@ void xcb_event_handler(xcb_connection_t *conn) {
                    break;
             }
             default: 
-               printf("DEFAULT");
+               #ifdef DEBUG 
+                    printf("DEFAULT\n");
+               #endif
                break;
         }
     }
